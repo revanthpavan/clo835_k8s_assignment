@@ -31,7 +31,7 @@ jobs:
           IMAGE_TAG: V1
         run: |
           ls -ltra
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V1-app -f Dockerfile .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:app-$IMAGE_TAG -f Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:app-$IMAGE_TAG
 
       - name: Build and Push SQL image V1
@@ -41,7 +41,7 @@ jobs:
           IMAGE_TAG: V1
         run: |
           ls -ltra
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V1-mysql -f Dockerfile_mysql .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:mysql-$IMAGE_TAG -f Dockerfile_mysql .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:mysql-$IMAGE_TAG
 
       - name: Build and Push App image V2
@@ -51,7 +51,7 @@ jobs:
           IMAGE_TAG: V2
         run: |
           ls -ltra
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V2-app -f Dockerfile .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:app-$IMAGE_TAG -f Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:app-$IMAGE_TAG
 
       - name: Build and Push SQL image V2
@@ -61,5 +61,5 @@ jobs:
           IMAGE_TAG: V2
         run: |
           ls -ltra
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V2-mysql -f Dockerfile_mysql .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:mysql-$IMAGE_TAG -f Dockerfile_mysql .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:mysql-$IMAGE_TAG
