@@ -2,9 +2,9 @@ name: Deploy to ECR
 # updated ECR Repo week3-1
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  #push:
+   # branches:
+     # - main
 
 jobs:
   build:
