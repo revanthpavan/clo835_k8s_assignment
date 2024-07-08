@@ -33,8 +33,8 @@ jobs:
       run: |
         ls -ltra
         # Docker build command
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-app -f Dockerfile .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-app
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V1-app -f Dockerfile .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:V1-app
 
 
     - name: Build and Push SQL image
@@ -45,5 +45,28 @@ jobs:
       run: |
         ls -ltra
         # Docker build command
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-mysql -f Dockerfile_mysql . 
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-mysql
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V1-mysql -f Dockerfile_mysql . 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:V1-mysql
+
+    - name: Build and Push App image V2
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: clo835-ecr
+        IMAGE_TAG: latest
+      run: |
+        ls -ltra
+        # Docker build command
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V2-app -f Dockerfile .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:V2-app
+  
+  
+    - name: Build and Push SQL image V2
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: clo835-ecr
+        IMAGE_TAG: latest
+      run: |
+        ls -ltra
+        # Docker build command
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:V2-mysql -f Dockerfile_mysql . 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:V2-mysql
