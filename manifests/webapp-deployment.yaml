@@ -18,7 +18,7 @@ spec:
 
     spec:
       containers:
-        - name: webapp-containerr
+        - name: webapp-container
           image: 025394766800.dkr.ecr.us-east-1.amazonaws.com/clo835-ecr:V2-app
           imagePullPolicy: Always
           env:
@@ -29,7 +29,8 @@ spec:
             - name: DBPORT
               value: "3306"
             - name: DBHOST
-              value: "mysql-service.DB.svc.cluster.local"
-
+              value: "mysql-service.db.svc.cluster.local"
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: myecrsecret

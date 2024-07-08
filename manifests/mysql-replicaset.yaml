@@ -2,13 +2,12 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: mysql-replicaset
-  namespace: DB
+  namespace: db
   labels:
     app: mysql
 
 spec:
-  #modify the "replicas" values as per requirement
-  replicas: 2
+  replicas: 2  # Modify the "replicas" value as per your requirement
   selector:
     matchLabels:
       app: mysql
@@ -27,3 +26,5 @@ spec:
               value: "rootpassword"
           ports:
             - containerPort: 3306
+      imagePullSecrets:
+        - name: myecrsecret

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: DB
+  namespace: db
   labels:
     app: mysql
 
@@ -26,3 +26,5 @@ spec:
               value: "rootpassword"
           ports:
             - containerPort: 3306
+      imagePullSecrets:
+        - name: myecrsecret

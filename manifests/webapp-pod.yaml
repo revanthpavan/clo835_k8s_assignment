@@ -8,18 +8,18 @@ metadata:
 
 spec:
   containers:
-  - name: webapp-container
-    image: 025394766800.dkr.ecr.us-east-1.amazonaws.com/clo835-ecr:V2-app
-    ports:
-    - containerPort: 8080
-    env:
-    - name: DBHOST
-      value: "mysql-service.DB.svc.cluster.local"
-    - name: DBPORT
-      value: "3306"
-    - name: DBUSER
-      value: "root"
-    - name: DBPWD
-      value: "rootpassword"
-    
-  
+    - name: webapp-container
+      image: 025394766800.dkr.ecr.us-east-1.amazonaws.com/clo835-ecr:V2-app
+      ports:
+        - containerPort: 8080
+      env:
+        - name: DBHOST
+          value: "mysql-service.db.svc.cluster.local"
+        - name: DBPORT
+          value: "3306"
+        - name: DBUSER
+          value: "root"
+        - name: DBPWD
+          value: "rootpassword"
+  imagePullSecrets:
+    - name: myecrsecret
