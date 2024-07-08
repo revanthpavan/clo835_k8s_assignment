@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: webapp-container
-          image:
+          image: 025394766800.dkr.ecr.us-east-1.amazonaws.com/clo835-ecr:V2-app
           env:
             - name: DBUSER
               value: "root"
