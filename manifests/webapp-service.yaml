@@ -7,7 +7,7 @@ metadata:
     app: employees
 spec:
   selector:
-      app: employees
+    app: employees
   type: NodePort
   ports:
     - port: 8080
