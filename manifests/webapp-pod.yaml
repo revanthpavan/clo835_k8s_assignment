@@ -21,5 +21,4 @@ spec:
           value: "root"
         - name: DBPWD
           value: "rootpassword"
-  imagePullSecrets:
-    - name: myecrsecret
+

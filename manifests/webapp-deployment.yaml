@@ -32,5 +32,4 @@ spec:
               value: "mysql-service.db.svc.cluster.local"
           ports:
             - containerPort: 8080
-      imagePullSecrets:
-        - name: myecrsecret
+
