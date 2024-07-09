@@ -3,9 +3,13 @@ kind: Service
 metadata:
   name: webapp-service
   namespace: app
+  labels:
+    app: employees
 spec:
+  selector:
+    app: employees
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
-  selector:
-    app: employees
+      nodePort: 30000
