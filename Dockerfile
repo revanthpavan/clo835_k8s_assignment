@@ -1,9 +1,4 @@
 FROM ubuntu:20.04
-
-# Set up environment variables and build arguments
-ARG APP_COLOR=lime
-ENV APP_COLOR=${APP_COLOR}
-
 RUN apt-get update -y
 COPY . /app
 WORKDIR /app
